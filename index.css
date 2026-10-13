@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #08090B;
+    --bg-obsidian: #101114;
+    --bg-elevated: #16181C;
+    --text-primary: #F5F2EA;
+    --text-muted: #92949A;
+    --border-hairline: rgba(245, 242, 234, 0.08);
+    --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    border-color: var(--border-hairline);
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #08090B;
+    color: #F5F2EA;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.01em;
+  }
+}
+
+.font-ui {
+  font-family: var(--font-sans);
+}
+
+.font-clock-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-clock-serif {
+  font-family: var(--font-serif);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom ultra-minimal scrollbars for drawers and panels */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 242, 234, 0.14);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 242, 234, 0.28);
+}
+
+/* Subtle breathing animation for active audio sliders and meditative elements */
+@keyframes aura-breathe {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03);
+  }
+}
+
+.animate-aura-breathe {
+  animation: aura-breathe 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes aura-drift {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px) scale(1.03);
+  }
+  50% {
+    transform: translate3d(-12px, -8px, 0px) scale(1.06);
+  }
+}
+
+.animate-aura-drift {
+  animation: aura-drift 26s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
